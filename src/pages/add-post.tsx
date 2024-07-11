@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from './navBar';
 
 const AddPost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -35,12 +36,17 @@ const AddPost: React.FC = () => {
 
   return (
     <div>
+    <NavBar />
+    <main className="flex flex-col items-center min-h-screen py-2 bg-gray-200">
+    <div>
 			
-      <h1>Add a New Post</h1>
+      <h1>新しい質問</h1>
       <form onSubmit={handleSubmit}>
+      <article className="bg-white p-4 mb-4 rounded-md shadow-md w-5000 h-3/5 overflow-y-auto bg-orange-300" >
         <div>
-          <label htmlFor="title">Title:</label>
+          <label className = "w-3/5" htmlFor="title">Title: 　</label>
           <input
+          className=""
             type="text"
             id="title"
             value={title}
@@ -55,9 +61,14 @@ const AddPost: React.FC = () => {
             onChange={(e) => setContent(e.target.value)}
           />
         </div>
-        <button type="submit">Add Post</button>
+        </article>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Add Post</button>
+        
+        
       </form>
     </div>
+  </main>
+  </div>
   );
 };
 

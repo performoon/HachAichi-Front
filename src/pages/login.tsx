@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export default function Login() {
 	const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+	const [password, setPassword] = useState('');
 	const [isLoggedIn, setIsLoggedIn] = useState(false);// ログイン状態を管理
 
 		// 仮のダミーtokenを取得するコード
@@ -64,11 +64,8 @@ export default function Login() {
       console.error('ログインエラー:', error);
     }
   };
-	
 
   return (
-
-
 
 	<div className="min-h-screen flex items-center justify-center bg-gray-100">
 	<div className="bg-white p-8 rounded shadow-md w-80">

@@ -42,12 +42,14 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
   };
 
   return (
-    <main>
+    
+    <div>
     <NavBar />
-    <div className="flex flex-col  items-center min-h-screen py-5 bg-gray-200">
-      
+    <main className="flex flex-col  items-center min-h-screen py-2 bg-gray-200">
+    <article className="bg-white p-4 mb-10 rounded-md shadow-md h-1/5 overflow-y-auto" >
       <h1 className="text-2xl">{post.title}</h1>
       <p>{post.content}</p>
+    </article>
 
       {/* 返信フォーム */}
       <div>
@@ -69,8 +71,8 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
           ))}
         </ul>
       </div>
-    </div>
     </main>
+    </div>
   );
 };
 

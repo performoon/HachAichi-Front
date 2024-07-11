@@ -49,54 +49,65 @@ const Blog: React.FC = () => {
     }
   }
 
+  function handleRadioChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const selectedValue = event.target.value;
+    setShowDivision(selectedValue);
+  
+    // setShowDivisionの更新を待ってからfetchDataを呼び出す
+    fetchData();
+  }
+
 
   return (
+
     <main >
       <NavBar />
       <div className="flex">
-      <div className="flex flex-cul min-h-screen bg-gray-200">
-        {/* サイドバー */}
-      <div className="w-1/4 p-4 bg-white shadow-md">
-        <h2 className="text-lg font-semibold">Filter by Division</h2>
-        <div>
-          <label className="block">
-            <input
-              type="radio"
-              name="division"
-              value="all"
-              checked={showDivision === 'all'}
-              onChange={() => setShowDivision('all')}
-            />
-            All
-          </label>
-          <label className="block">
-            <input
-              type="radio"
-              name="division"
-              value="division1"
-              checked={showDivision === 'division1'}
-              onChange={() => setShowDivision('division1')}
-            />
-            Division 1
-          </label>
-          <label className="block">
-            <input
-              type="radio"
-              name="division"
-              value="division2"
-              checked={showDivision === 'division2'}
-              onChange={() => setShowDivision('division2')}
-            />
-            Division 2
-          </label>
+      <div className="flex-none w-[16rem] w-1000 min-h-screen bg-gray-200">
+      {/* サイドバー */}
+      <div className=" p-4 bg-white shadow-md">
+            <h2 className="text-lg font-semibold">絞り込み</h2>
+            <div>
+              <label className="block">
+                <input
+                  type="radio"
+                  name="division"
+                  value="all"
+                  checked={showDivision === 'all'}
+                  onChange={handleRadioChange}
+                />
+                All
+              </label>
+              <label className="block">
+                <input
+                  type="radio"
+                  name="division"
+                  value="python"
+                  checked={showDivision === 'python'}
+                  onChange={handleRadioChange}
+                  
+                />
+                python
+              </label>
+              <label className="block">
+                <input
+                  type="radio"
+                  name="division"
+                  value="javascript"
+                  checked={showDivision === 'javascript'}
+                  onChange={handleRadioChange}
+                />
+                javascript
+              </label>
+            </div>
+          </div>
+          
         </div>
-      </div>
-      <div className="flex-1 p-4 overflow-y-auto">
+      <div className="grow p-4 overflow-y-auto">
           <h1 className="text-xl mb-4">質問一覧</h1>
           {posts.map((post) => (
             <PostCard key={post.id} {...post} />
           ))}
-        </div>
         </div>
       </div>
     </main>
